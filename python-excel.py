@@ -1,4 +1,3 @@
-from xlrd import open_workbook
 import xlrd
 import xlwt
 import sys
@@ -15,13 +14,15 @@ def readsheet(s, row_count=-1, col_cout=-1):
         yield [s.cell(row_index, col).value for col in range(ncols)]
         row_index += 1
 
+
+
 def ParseExcel(file):
     if not os.path.exists(file):
         print("file: ", file, " not exist.")
         sys.exit()
     d = {}
     list = []
-    wb = open_workbook(file)
+    wb = xlrd.open_workbook(file)
     count = 0
 
     for s in wb.sheets():
