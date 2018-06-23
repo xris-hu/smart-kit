@@ -14,8 +14,6 @@ def readsheet(s, row_count=-1, col_cout=-1):
         yield [s.cell(row_index, col).value for col in range(ncols)]
         row_index += 1
 
-
-
 def ParseExcel(file):
     if not os.path.exists(file):
         print("file: ", file, " not exist.")
@@ -98,12 +96,11 @@ def ParseExcel(file):
             table.write(index + 1, 4, "晚上")
             table.write(index + 1, 5, str(d[name][date]["night"]))
 
-            index = index +2
+            index = index + 2
 
     file.save('考勤表.xls')
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Please input excel file path:")
         sys.exit()
